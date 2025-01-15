@@ -24,3 +24,22 @@ Insert into stocks(mainshow,id,name,category,price,imgsrc,showorhide) values ('m
 Insert into site_user(username,password,email) values('admin','$2a$10$9ngWr3mjs.ndVxl3uPBOJewZ8YrvwWrskxg9OB150TxlTLusK089G','abc@gallup.co.kr');
 Insert into site_user(username,password,email) values('user','$2a$10$9ngWr3mjs.ndVxl3uPBOJewZ8YrvwWrskxg9OB150TxlTLusK089G','abdc@gallup.co.kr');
 Insert into site_user(username,password,email) values('1111','$2a$10$uvhzt3PpwotmfN6.Kl3uteChG03x7GXMd1A3dq1z6nHIxb3ClznxK','abdcd@gallup.co.kr');
+
+
+
+
+
+Insert into purchase(ORDERDATETIME,USER_ID,DEPOSIT,ORDERID,TOTALPRICE ) values('2025-01-06 11:01:10.436109','3','0','11112025-01-06T11:01:10.436108800','3.0');
+Insert into purchase(ORDERDATETIME,USER_ID,DEPOSIT,ORDERID,TOTALPRICE ) values('2025-01-06 13:19:08.901384','3','0','11112025-01-06T13:19:08.901384300','3.0');
+Insert into purchase(ORDERDATETIME,USER_ID,DEPOSIT,ORDERID,TOTALPRICE ) values('2025-01-06 13:19:22.799564','3','4','11112025-01-06T13:19:22.799563700','15.0');
+Insert into purchase(ORDERDATETIME,USER_ID,DEPOSIT,ORDERID,TOTALPRICE ) values('2025-01-06 13:30:13.340885','2','4','user2025-01-06T13:30:13.340884700','12.0');
+
+Insert into PURCHASEDETAILS(COUNT,PURCHASE_ID,STOCK_NUM,PRICE) values(1,'1','12','3.0');
+Insert into PURCHASEDETAILS(COUNT,PURCHASE_ID,STOCK_NUM,PRICE) values(1,'2','12','3.0');
+Insert into PURCHASEDETAILS(COUNT,PURCHASE_ID,STOCK_NUM,PRICE) values(1,'3','13','3.0');
+Insert into PURCHASEDETAILS(COUNT,PURCHASE_ID,STOCK_NUM,PRICE) values(1,'3','10','12.0');
+Insert into PURCHASEDETAILS(COUNT,PURCHASE_ID,STOCK_NUM,PRICE,STATUSDATETIME,STATUS) values(1,'4','3','9.0','2025-01-10 10:42:34.955017','Refunded');
+Insert into PURCHASEDETAILS(COUNT,PURCHASE_ID,STOCK_NUM,PRICE,STATUSDATETIME,STATUS) values(1,'4','6','3.0','2025-01-10 10:42:34.955017','');
+
+
+Insert into REFUND(REFUNDDATETIME,ORDERID,STATUS) values('2025-01-10 10:42:34.953017','user2025-01-06T13:30:13.340884700','1')

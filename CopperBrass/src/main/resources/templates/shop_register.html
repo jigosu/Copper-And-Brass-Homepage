@@ -41,14 +41,14 @@
 			<input type="hidden" id="numId" name="numId" th:value="${updatestocks.num}">
 			<table class="registertable" >
 				<tr>
-					<td colspan="2">제품명 : 
+					<td colspan="2">Name : 
 						<input type="text" name="title" id="title" style="width: 80%;" th:value="${updatestocks.name}">
 					</td>
 		
 				</tr>
 				
 				<tr>
-					<td> 카테고리 : 			
+					<td> Category : 			
 						 <select name="category" style="width: 60%;" th:value="${updatestocks.category}">
 						  <option value="Notebook" th:selected="${updatestocks.category}=='Notebook'">Notebook</option>
 						  <option value="Greeting Cards" th:selected="${updatestocks.category}=='Greeting Cards'">Greeting Cards</option>
@@ -56,11 +56,11 @@
 						  <option value="Sticky Notes"  th:selected="${updatestocks.category}=='Sticky Notes'">Sticky Notes</option>
 						</select>
 					</td>
-					<td>가격 : <input type="text" id="price" name="price" th:value="${updatestocks.price}"></td>
+					<td>Price : <input type="text" id="price" name="price" th:value="${updatestocks.price}"></td>
 				</tr>
 
 				<tr>
-					<td colspan="2">이미지 : 
+					<td colspan="2">Image : 
 						<input th:if="${updatestocks.imgsrc==null}" type="file" name="file" id="file" accept="image/*" style="width: 400px;"  required multiple>
 						<input th:unless="${updatestocks.imgsrc==null}" type="text" name="file" id="file" th:value="${updatestocks.imgsrc}" style="width: 400px;" readonly>
 					</td> 
@@ -73,8 +73,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input th:if="${updatestocks.imgsrc==null}" type="submit" value="등록하기" onclick="send('R');">
-						<input th:unless="${updatestocks.imgsrc==null}" type="submit" value="업데이트" onclick="send('U');" >
+						<input th:if="${updatestocks.imgsrc==null}" type="submit" value="Submit" onclick="send('R');">
+						<input th:unless="${updatestocks.imgsrc==null}" type="submit" value="Update" onclick="send('U');" >
 					</td>
 				</tr>
 			</table>

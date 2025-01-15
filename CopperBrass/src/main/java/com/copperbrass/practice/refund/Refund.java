@@ -1,10 +1,11 @@
-package com.copperbrass.practice.purchase;
+package com.copperbrass.practice.refund;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import com.copperbrass.practice.SiteUser;
+import com.copperbrass.practice.purchase.purchasedetails;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -15,6 +16,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -25,7 +27,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class purchase {
+public class Refund {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
@@ -33,25 +35,18 @@ public class purchase {
 	
 	private String orderid;
 	
-	private LocalDateTime  orderdatetime;
+	private LocalDateTime  refunddatetime;
 	
-	// 0:입금대기 1:입금확인 2:출고준비 3:배송중 4:배송완료 5:환불진행 8:환불완료 9:구매확정
-	private String deposit; 
+	// 1:환불신청 2:환불확인(관리자) 3:환불완료
+	private String status; 
 
 	private String totalprice;
 	
-	@OneToMany(mappedBy="purchase", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "refund", cascade = CascadeType.ALL)
 	private List<purchasedetails> purchaseDetailsList;
 
-	@ManyToOne
-	private  SiteUser user;
+	private  String userid;
+
+
 	
-    @Override
-    public String toString() {
-        return "Purchase{" +
-               "id=" + id +
-               ", orderId='" + orderid + '\'' +
-               ", totalPrice=" + totalprice +
-               '}';
-    }	
 }

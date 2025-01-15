@@ -109,19 +109,17 @@ public class MainController {
 	@PostMapping("/copperbrass/findAllProductList")
 	@ResponseBody
 	public List<stocks> findAllProductListP(@RequestParam Map<String, Object> vo){
-		System.out.println("ff");
+		
 		List<stocks> addstocks = new ArrayList<>();
 		int lastStockNum = Integer.parseInt((String) vo.get("lastStockNum"));
 		String category = (String) vo.get("category");
 		
-		System.out.println("findAllProductListP함수");
+		
 		if (category.isBlank()) {
 			addstocks = this.stocksService.find4ByNum(lastStockNum);
 		}else {
 			addstocks = this.stocksService.find4ByNum(category,lastStockNum);
 		}
-		
-
 		
 		return addstocks;// @ResponseBody에 의해 JSONArray 로 응답한다 
 	}	
@@ -228,7 +226,7 @@ public class MainController {
 	                // 맥일 경우 
 	                //FileOutputStream fos = new FileOutputStream("/tmp/" + file.getOriginalFilename());
 	                // 윈도우일 경우
-	                FileOutputStream fos = new FileOutputStream("C:/Users/jyjang/git/CopperandBrass/CopperBrass/src/main/resources/static/img/main/bestseller/" + file.getOriginalFilename());
+	                FileOutputStream fos = new FileOutputStream("C:/Users/jyjang/git/repository/CopperBrass/src/main/resources/static/img/main/bestseller/" + file.getOriginalFilename());
 	                InputStream is = file.getInputStream();
 	        ){
 	        	    int readCount = 0;

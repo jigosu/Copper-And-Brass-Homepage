@@ -27,7 +27,7 @@ let current_page = 1;
 			
 			$.ajax({
 				type:"POST",
-				url:"mypage/purchases",
+				url:"history-config/purchases",
 				data:{"Page":current_page},
 				
 			    //추가해야 하는 부분
@@ -69,16 +69,18 @@ let current_page = 1;
 
 	                AddHistory = `
 	                
-					<div class="myPagePurchase" style="border: 1px solid #ddd;" onclick="window.location='/copperbrass/mypage_details/${orderid.orderId}'">
+					<div class="myPagePurchase" style="border: 1px solid #ddd;" onclick="window.location='/copperbrass/history_config_details/${orderid.orderId}'">
 				    <div class="myPageOrderId">
-				       주문번호 :<span>${orderid.orderId}</span>
+				       No : <span>${orderid.id}</span><br>
+				       User : <span>${orderid.user.username}</span><br>
+				       OrderId :<span>${orderid.orderId}</span><br>				       
 				    </div>			
 				    <div>
 				        <table  class="stocksTable">
 				            <thead>
 				                <tr>
 									<th>Img</th>
-				                    <th>Stock</th>
+				                    <th>Product</th>
 				                    <th>Count</th>
 				                    <th>Price</th>
 				                </tr>
@@ -146,7 +148,7 @@ let current_page = 1;
 	<nav th:replace="~{header :: navbarFragment}"></nav>
 	<div class="total">
 		<div class=" colorheader" >
-		My Page
+		History Management
 		</div>
 	</div>
 	
@@ -160,24 +162,26 @@ let current_page = 1;
 	<br>
 	
 
-	<div class="total" th:if="${#lists.isEmpty(mypageList)}" >
+	<div class="total" th:if="${#lists.isEmpty(adminPurchase)}" >
 		<div class="maincontent">
 			No history
 		</div>
 	</div>
-	<div class="total">
+<div class="total">
 		<div class="maincontent">	
 			<div class="column" id="column">
-				<div class="myPagePurchase" style="border: 1px solid #ddd;" th:each="purchase : ${mypageList}" th:onClick="window.location='/copperbrass/mypage_details/'+ [[${purchase.orderid}]]">
+				<div class="myPagePurchase" style="border: 1px solid #ddd;" th:each="purchase : ${adminPurchase}" th:onClick="window.location='/copperbrass/history_config_details/'+ [[${purchase.orderid}]]">
 				    <div class="myPageOrderId">
-				       주문번호 :<span th:text="${purchase.orderid}"></span>
+				       No : <span th:text="${purchase.id}"></span><br>
+				       User : <span th:text="${purchase.user.username}"></span><br>
+				       OrderId :<span th:text="${purchase.orderid}"></span><br>
 				    </div>			
 				    <div>
 				        <table class="stocksTable" >
 				            <thead>
 				                <tr>
 									<th>Img</th>
-				                    <th>Stock</th>
+				                    <th>Product</th>
 				                    <th>Count</th>
 				                    <th>Price</th>
 				                </tr>

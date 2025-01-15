@@ -34,7 +34,12 @@
 					<span class="headeruser" th:if="${principal != null}" th:text="${principal.Principal.username}"></span>
 					
 					<span class="headeruser" th:if="${principal != null}">님</span>
-					<input type="button" value="My Page" onClick="location.href='/copperbrass/mypage'" style="background-color:blanchedalmond;">
+					<span th:if="${#authentication.authorities.?[authority == 'ROLE_USER'].size() > 0}">
+						<input type="button" value="My Page" onClick="location.href='/copperbrass/mypage'" style="background-color:blanchedalmond;">
+					</span>
+					<span th:if="${#authentication.authorities.?[authority == 'ROLE_ADMIN'].size() > 0}">
+						<input type="button" value="Admin" onClick="location.href='/copperbrass/history_config'" style="background-color:blanchedalmond;">
+					</span>
 					<input type="button" value="Logout" onClick="location.href='/user/logout'" style="background-color:gainsboro;">
 				</span> 
 				<span sec:authorize="isAnonymous()">
@@ -43,5 +48,9 @@
 				</span>
 			</div>
  		</div>
+ 		<div>
+			
+<!--<p th:text="${#authentication}">Authentication 객체</p>-->
+		</div>
 	</div>
 </nav>

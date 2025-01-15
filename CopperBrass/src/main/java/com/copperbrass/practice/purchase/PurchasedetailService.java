@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 
+
+
 @AllArgsConstructor
 @Service
 public class PurchasedetailService {
@@ -17,9 +19,25 @@ public class PurchasedetailService {
 		
 	}
 
-	public List<purchasedetails> getPurchasedetailsList(Integer id) {
-		return this.purchasedetailsRepository.findAllById(id);
+	public List<purchasedetails> getPurchasedetailsListByPurchaseid(Integer id) {
+		return this.purchasedetailsRepository.findAllByPurchaseId(id);
 		
 	}
 	
+    // 특정 purchase ID 리스트를 사용해 purchasedetails 조회
+    public List<purchasedetails> getDetailsByPurchaseIds(List<Integer> purchaseIds) {
+        return purchasedetailsRepository.findByPurchaseIdIn(purchaseIds);
+    }	
+    
+
+    public List<purchasedetails> getDetailsByPurchaseIdAndIds(Integer purchaseId, List<Integer> ids) {
+        return purchasedetailsRepository.findByPurchaseIdAndIdIn(purchaseId, ids);
+    }
+	   
+    public void updateStatusByPurchaseId(String orderId) {
+        purchasedetailsRepository.updateStatusToCByPurchaseIdAndStatusNotRefunded(orderId);
+    }
+
+
+    
 }

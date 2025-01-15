@@ -46,6 +46,9 @@ a {
   text-decoration: none;
   color: black;
 }
+button:hover{
+	cursor: pointer;
+}
 
 /*header (시작)*/
 .header {
@@ -578,7 +581,11 @@ ul, li{margin:0;padding:0;list-style:none}
 	font-weight: bold;
 	background-color: black;
 
-}	   
+}	  
+
+.shopBlackBtn:hover{
+	cursor: pointer;
+} 
 /* Shop 페이지 (끝)*/
 
 
@@ -869,19 +876,88 @@ justify-content: center;
 	
 }
 
-/* 구매 내역 */
+/* 구매 내역 (시작) */
+.column{
+	display: flex;
+	flex-direction: column; 
+	align-items: center;
+	justify-content: center;
+	font-family: '나눔스퀘어';	
+}
 .myPagePurchase{
-	width: 80%;
+	width: 100%;
 	max-width: 1200px;
+	min-width: 500px;
 	float: middle;
 	margin-bottom: 10px; 
 	padding: 10px; 
 	cursor: pointer;
+	font-family: '나눔스퀘어';	
+}
+.myPageOrderId{
+	color: black;
+	font-size: 18px;
+	font-weight: bold;
 }
 .mypageDate{
 	color: #B70037;
+	font-size: 18px;	
+}
+.halfContainer{
+	float: left;
+	width: 100%;
+	display: flex;
+	justify-content : center;
+	flex-wrap: wrap; /* 줄 바꿈 허용 */
+}
+.left50_l{
+	text-align: left;
+	width: 50%;
+	font-size: 16px;
+	font-family: '나눔스퀘어';	
+/*	background-color: beige;*/
+	display: flex;
+	justify-content : left;
 	
 }
+.right50_r{
+	text-align: right;
+	width: 50%;
+	font-size: 16px;
+	font-family: '나눔스퀘어';	
+	display: flex;
+	justify-content : right;	
+	color: darkgreen;
+	font-weight: bold;
+}
+
+.stocksTable{
+	border: 1px #a39485 solid;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-family: '나눔스퀘어';	
+	font-size: 14px;
+	width: 90%;
+	border-collapse: collapse;
+	border-radius: 5px;
+	overflow: hidden;
+	
+}
+.stocksTable thead {
+  font-weight: bold;
+  color: #fff;
+  background: #73685d;
+  font-size: 14px;
+  height: 30px;
+}
+
+.stocksTable tbody {
+	background: #faf0e6
+}
+
+/* 구매 내역 (끝) */
+
+
 
 
 /* Login (시작)*/
@@ -983,9 +1059,13 @@ button:hover {
 /* contact (시작)*/
 .left55{
 	float: left;
-	width: 40%;
+	width: 45%;
 	font-size: 16px;
 	font-family: '나눔스퀘어';	
+	display: flex;
+	justify-content : center;
+	flex-wrap: wrap; /* 줄 바꿈 허용 */
+	
 
 }
 .right45{
@@ -994,11 +1074,44 @@ button:hover {
 	float: left;
 	font-size: 16px;
 	font-family: '나눔스퀘어';	
+	box-sizing: border-box;
 	
 }
+.left50{
+	text-align: left;
+	width: 50%;
+	font-size: 16px;
+	font-family: '나눔스퀘어';	
+	/*background-color: beige;*/
+	display: flex;
+	justify-content : center;
+	align-items : flex-start;	
+	flex-direction: column;
+	
+}
+.right50{
+	text-align: left;
+	width: 50%;
+/*	float: left;*/
+	font-size: 16px;
+	font-family: '나눔스퀘어';	
+	display: flex;
+	justify-content : center;
+	align-items : flex-start;	
+	flex-direction: column;	
+}
+
+.left55total {
+  flex-basis: 100%; /* 전체 너비 차지 */
+  display: flex;
+  justify-content : center;
+  align-items : flex-start;	
+  flex-direction: column;  
+  text-align: center; /* 가로 중앙 정렬 */
+}
 input.input3{
-	width: 300px;
-	height: 50px;
+	width: 90%;
+	height: 40px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	border: 1px solid lightslategrey;
@@ -1006,9 +1119,215 @@ input.input3{
 	border-left: none;
 	border-right: none;
 	outline: none;
+	display: flex;
+	justify-content : center;
 }
+input.input4{
+	width: 95%;
+	height: 40px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border: 1px solid lightslategrey;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	outline: none;
+	display: flex;
+	justify-content : center;
+}
+
 input.input3:focus {
     border-bottom: 2px solid royalblue;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 포커스 시 살짝 그림자 효과 추가 */
 }
+input.input4:focus {
+    border-bottom: 2px solid royalblue;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 포커스 시 살짝 그림자 효과 추가 */
+}
+.contactTitle{
+	font-size: 16px;
+	font-family: "롯데마트잠실체4";
+	text-align: center;
+}
+.contactText{
+	font-size: 14px;
+	font-family: '나눔스퀘어';	
+	box-sizing: border-box;	
+}
+.contactSubmit{
+	width: 250px;
+	height: 40px;
+	margin-top: 15px;
+	background-color: #EDC06F;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+}
 /* contact (끝)*/
+
+
+.total .maincontent2{
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    justify-content: flex-end; /* 아래로 정렬 */
+    align-items: center;
+    
+}
+@media screen and (min-width: 1200px) {
+.maincontent2{
+	width: 1200px;
+	margin:0 auto; /* div div 안에 가운데 정렬 자동으로 해줌*/
+	display: flex;
+	
+	}
+}
+
+.status{
+	font-family: '나눔스퀘어';	
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 70%;
+    justify-content: space-between;
+    margin-top: 10px;
+    flex-wrap: wrap; /* 내용이 넘치면 다음 줄로 이동 */
+}
+
+.status-set{
+	display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    justify-content: flex-end; /* 아래로 정렬 */
+    align-items: center;
+	
+}
+
+.status-item{
+	flex: 0 0 120px; /* 아이템 크기 고정 (너비 100px) */
+	font-size: 14px;
+	height: 40px;
+	text-align: center;
+	flex: 1 1 auto; /* 항목이 부모 크기에 따라 자동으로 줄어듦 */
+	align-items: center; /* 세로 중앙 정렬 */
+}
+.status-item2{
+	font-size: 25px;
+	width: 75px;
+	text-align: center;
+	/* color: #a39485; */
+	align-items: center; /* 세로 중앙 정렬 */
+}
+
+.button-left{
+    display: flex;
+    justify-content: left; /* 가로 중앙 정렬 */
+    align-items: left; /* 세로 중앙 정렬 */
+    width: 35%;
+    /*background-color: royalblue;*/
+}
+.button-right{
+    display: flex;
+    justify-content: right; /* 가로 중앙 정렬 */
+    align-items: right; /* 세로 중앙 정렬 */
+    width: 35%;
+    /*background-color: #EDC06F;*/
+}
+.total .maincontent .beigebtn{
+	 background-color: #faf0e6;
+	 border-radius: 10px;
+	 color: black;
+	 font-size: 15px;
+	 font-family: "롯데마트잠실체4";
+	 border: none;
+	 padding: 8px 5px;
+	 width: 120px;
+	 height: 40px;
+	 margin-right: 20px;
+	 
+ } 
+.total .maincontent .brownbtn{
+	 background-color: #73685d;
+	 border-radius: 10px;
+	 color: white;
+	 font-size: 15px;
+	 font-family: "롯데마트잠실체4";
+	 border: none;
+	 padding: 8px 5px;
+	 width: 120px;
+	 height: 40px;
+ }  
+
+.total .maincontent .greybtn{
+	 background-color: lightgray;
+	 border-radius: 10px;
+	 color: black;
+	 font-size: 15px;
+	 font-family: "롯데마트잠실체4";
+	 border: none;
+	 padding: 8px 5px;
+	 width: 120px;
+	 height: 40px;
+ }  
+
+
+
+/* 상세 구매 내역 (시작) mypage-details */
+.stocksDTable{
+	border: 1px #a39485 solid;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-family: '나눔스퀘어';	
+	font-size: 18px;
+	width: 70%;
+	border-collapse: collapse;
+	border-radius: 5px;
+	overflow: hidden;
+	
+}
+.stocksDTable thead {
+  font-weight: bold;
+  color: #fff;
+  background: #73685d;
+  font-size: 20px;
+  height: 40px;
+}
+.myPagetitle{
+  font-family: '나눔스퀘어';	
+  font-weight: bold;
+}
+.myPagetitle2{
+  font-family: '나눔스퀘어';
+  font-size: 18px;
+  font-weight: bold;
+  float: left;
+}
+
+.stocksDTable tbody {
+	background: #faf0e6
+}
+
+.disabled-btn {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+/* 상세 구매 내역 (끝) mypage-details */
+
+/* 관리자 상세 구매 내역 (시작) history-config-details */
+.status-click:hover{
+	cursor: pointer;
+}
+.explanation{
+	font-family: '나눔스퀘어';	
+	font-size: 18px;
+	
+}
+.refunded-row td {
+    text-decoration: line-through;
+    color: darkgray;
+}
+/* 관리자 상세 구매 내역 (끝) history-config-details */
+
+
+
+
+

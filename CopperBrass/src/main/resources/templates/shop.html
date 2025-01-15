@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-<meta name="_csrf" th:content="${_csrf.token}"/>
-<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 	 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<title>About | COPPER & BRASS</title>
@@ -70,15 +70,6 @@
 <script th:inline="javascript">
 	
 /*table row 추가하는 법 - 안쓰임*/
-  function add_row() {
-    var my_tbody = document.getElementById('my-tbody');
-    // var row = my_tbody.insertRow(0); // 상단에 추가
-    var row = my_tbody.insertRow( my_tbody.rows.length ); // 하단에 추가
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = 'HELLO world';
-    cell2.innerHTML = new Date().toUTCString();
-  }
 
 var lastStockNum = [[${lastStockNum}]];
 
@@ -104,10 +95,10 @@ const name = $("#userName").val();
 				data:{"lastStockNum":lastStockNum,
 				"category":categoryname},
 				
-    //추가해야 하는 부분
-    beforeSend : function(xhr) {
-        xhr.setRequestHeader(header, token);
-    },
+			    //추가해야 하는 부분
+			    beforeSend : function(xhr) {
+			        xhr.setRequestHeader(header, token);
+			    },
 				
 				success:function(productList){
 					var ul_list = $("#stockslist");
